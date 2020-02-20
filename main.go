@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+const version = "v0.0.2"
+
 var (
 	fileNames = []string{"A", "B", "C", "D", "E", "F"}
 	contens   = `#include <iostream>

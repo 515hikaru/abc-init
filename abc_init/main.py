@@ -14,6 +14,17 @@ def main():
         with file_path.open("w") as f:
             f.write(
                 """#include <iostream>
+#include <cmath>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <stack>
+#include <queue>
+#include <functional>
+#include <map>
+#include <set>
+#include <tuple>
+#include <bitset>
 using namespace std;
 
 int main() {

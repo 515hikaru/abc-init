@@ -9,7 +9,7 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-const version = "v0.0.2-dev"
+const version = "v0.0.3"
 
 var (
 	app        *cli.App

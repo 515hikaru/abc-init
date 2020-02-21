@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-const version = "v0.0.2"
+const version = "v0.0.2-dev"
 
 var (
 	fileNames = []string{"A", "B", "C", "D", "E", "F"}

@@ -36,27 +36,24 @@ int main() {
 `
 )
 
-func createFile(content []byte, fileName string, fileType string) error {
-	fileType = "cpp" // TODO: support other language
-	fileNameWithExt := fmt.Sprintf("%s.%s", fileName, fileType)
+func createFile(fileName string, template languageTemplate) error {
+	fileNameWithExt := fmt.Sprintf("%s.%s", fileName, template.fileType)
+	content := []byte(template.initialContent)
 	return ioutil.WriteFile(fileNameWithExt, content, 0666)
 }
 
 func run(c *cli.Context) error {
-	b := []byte(contents)
 	if fileName := c.String("output"); fileName != "" {
-		err := createFile(b, fileName, "cpp")
+		err := createFile(fileName, cppTemplate)
 		if err != nil {
 			log.Fatal(err)
-			os.Exit(1)
 		}
 		return nil
 	}
 	for _, fileName := range fileNames {
-		err := createFile(b, fileName, "cpp")
+		err := createFile(fileName, cppTemplate)
 		if err != nil {
 			log.Fatal(err)
-			os.Exit(1)
 		}
 	}
 
@@ -83,5 +80,7 @@ func main() {
 	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
+		os.Exit(1)
 	}
+	os.Exit(0)
 }
